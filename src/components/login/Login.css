@@ -1,0 +1,295 @@
+/* Estilo geral */
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #1A237E; /* Azul escuro - cor predominante */
+    color: #FFD700; /* Texto dourado */
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+/* Container principal que divide o login em duas partes */
+.main-login {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Seção da esquerda */
+.left-login {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A237E; /* Azul escuro */
+}
+
+.left-login > h1 {
+      font-size: 3vw;
+    color: #FFD700; /* Dourado (ouro) */
+    margin: 0;
+    text-align: center; /* Garante que o texto esteja centralizado */
+}
+
+/* Imagem da esquerda com animação */
+.left-login-img {
+    width: 90%; /* Aumentando o tamanho da imagem */
+    max-width: 550px; /* Aumentando o tamanho máximo da imagem */
+    opacity: 0;
+    transform: translateX(-50px); /* Deslocando a imagem para a esquerda */
+    animation: fadeInMove 1s ease-in-out 0.5s forwards; /* Animação */
+}
+
+/* Definindo a animação 'fadeInMove' */
+@keyframes fadeInMove {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Começa à esquerda */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Move para a posição original */
+    }
+}
+
+/* Seção da direita (formulário de login) */
+.right-login {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5864d4; /* Azul mais suave */
+}
+
+.card-login {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #1A237E; /* Azul escuro */
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-login > h1 {
+    color: #FFD700; /* Dourado (ouro) */
+    font-weight: 800;
+    margin: 0;
+}
+
+.text-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.text-field > input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #4C72B0; /* Azul mais suave */
+    color: #f0f4f8; /* Texto claro */
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.text-field > label {
+    color: #f0f4f8;
+    margin-bottom: 10px;
+}
+
+.text-field > input::placeholder {
+    color: #f0f4f8;
+}
+
+/* Estilo do botão de login */
+.btn-login {
+    width: 100%;
+    padding: 16px 0px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #1A237E; /* Azul escuro */
+    background-color: #FFD700; /* Dourado (ouro) */
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -15px #FFD700;
+    position: relative;
+    overflow: hidden; /* Garante que a animação não ultrapasse os limites do botão */
+}
+
+/* Animação do botão ao clicar */
+.btn-login::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Estado inicial menor */
+    transition: transform 0.3s ease-in-out; /* Duração mais curta e mais visível */
+    pointer-events: none;
+}
+
+.btn-login:hover::before {
+    transform: translate(-50%, -50%) scale(1.1); /* Pequeno efeito ao passar o mouse */
+}
+
+/* Ajustes para telas menores */
+@media only screen and (max-width: 950px) {
+    .card-login {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-login {
+        flex-direction: column;
+    }
+
+    .left-login > h1 {
+        display: none;
+    }
+
+    .left-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .right-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .left-login-img {
+        width: 50vw;
+    }
+
+    .card-login {
+        width: 90%;
+    }
+}
+
+/* Mensagem de erro */
+.warning-message {
+    position: fixed; /* Fixa a mensagem */
+    top: 20%; /* Coloca no centro vertical da tela */
+    left: 50%; /* Coloca no centro horizontal da tela */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar totalmente */
+    background-color: #1A237E; /* Azul escuro */
+    color: #FFD700; /* Dourado (ouro) */
+    text-align: center; /* Alinha o texto no centro */
+    font-size: 18px;
+    padding: 20px; /* Adiciona um pouco de espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    z-index: 1000; /* Garante que a mensagem fique na frente */
+    width: 80%; /* Largura da mensagem (ajuste conforme necessário) */
+    max-width: 500px; /* Largura máxima */
+    display: flex; /* Usando flexbox */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+}
+
+/* Texto e ícone no mesmo container */
+.error-message {
+    flex-grow: 1; /* O texto ocupa o espaço disponível */
+}
+
+/* Ícone de fechar */
+.error-icon {
+    margin-left: 10px; /* Espaçamento entre o texto e o ícone */
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFD700; /* Cor dourada para o ícone */
+}
+
+.recall {
+    margin-top: 12px; /* Espaçamento acima do checkbox */
+    margin-bottom: 40px; /* Espaçamento abaixo do checkbox */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+}
+
+/* Ajustando o espaçamento entre o checkbox e o texto */
+.recall > input {
+    margin-right: 15px; /* Espaçamento entre o checkbox e o texto */
+}
+
+/* Estilo do elemento 'forget' */
+.forget {
+    margin-bottom: 20px; /* Espaçamento abaixo do 'forget' */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Estilo do elemento 'signup' */
+.signup {
+    margin-bottom: 20px; /* Espaçamento abaixo do 'signup' */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+.signup-link {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+a {
+    color: #ffffff; /* Cor dourada (ouro) para o link normal */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Cor do link quando estiver no estado :hover (quando passa o mouse) */
+a:hover {
+    color: #6e6e6e; /* Cor ao passar o mouse */
+}
+
+/* Cor do link quando clicado ou em foco */
+a:active, a:focus {
+    color: #00BFFF; /* Cor azul clara quando clicado ou em foco */
+}
+
+.icon-user {
+    position: absolute;
+    top: 37%;
+    left: 1250px;
+    transform: translateY(-50%); /* Para centralizar o ícone verticalmente */
+    font-size: 18px;
+    color: #FFD700;
+}
+
+.icon-lock {
+    position: absolute;
+    top: 46.5%;
+    left: 1250px;
+    transform: translateY(-50%); /* Para centralizar o ícone verticalmente */
+    font-size: 18px;
+    color: #FFD700;
+}
