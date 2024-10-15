@@ -1,0 +1,120 @@
+/* src/components/register/Register.css */
+.main-register {
+  display: flex;
+  height: 100vh;
+  background-color: #3b5998; /* Azul de fundo */
+}
+
+.left-register {
+  flex: 1;
+  background-color: #1a1a2e; /* Azul escuro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Adicionado para posicionar a logo */
+}
+
+.left-register h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffcc00; /* Dourado para o texto */
+}
+
+.left-register-img {
+  width: 80%;
+  height: auto;
+}
+
+.logo {
+  position: relative; /* Mude para relative para facilitar a centralização */
+  top: 0; /* Ajuste para zero para centralizar verticalmente */
+  left: 50%; /* Alinha a logo ao centro horizontalmente */
+  transform: translateX(-155%); /* Ajuste para centralizar perfeitamente */
+  width: 300px; /* Ajuste o tamanho conforme necessário */
+  margin-bottom: 20px; /* Espaço entre a logo e o texto */
+}
+
+
+.right-register {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-register {
+  background-color: #f0f0f5; /* Fundo claro para a card */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.card-register h1 {
+  margin-bottom: 50px;
+  color: #3b5998; /* Azul para o título */
+}
+
+.text-field {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.text-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #3b5998; /* Azul para o borda do input */
+  border-radius: 5px;
+  background-color: #ffffff; /* Fundo branco para o input */
+  color: #333; /* Texto escuro para o input */
+}
+
+.text-field label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #3b5998; /* Azul para o texto do label */
+}
+
+
+.icon-user, .icon-envelope, .icon-lock {
+  position: absolute;
+  top: 70%; /* Centraliza verticalmente */
+  left: 290px; /* Alinha à esquerda do input */
+  transform: translateY(-50%); /* Ajusta para centralizar */
+  font-size: 1.1rem; /* Ajuste o tamanho conforme necessário */
+  visibility: visible; /* Assegure que os ícones estão visíveis */
+  color: #ffcc00; /* Cor do ícone, ajuste conforme necessário */
+}
+
+
+.btn-register {
+  margin-top: 40px;
+  width: 100%;
+  padding: 20px;
+  background-color: #ffcc00; /* Dourado para o botão */
+  color: #000000; /* Azul para o texto do botão */
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+  font-size: 15px; /* Aumentar o tamanho da fonte */
+}
+
+.btn-register:hover {
+  background-color: #ffe787; /* Cor do botão ao passar o mouse */
+}
+
+.btn-register:disabled {
+  background-color: #aaa; /* Cor para botão desabilitado */
+}
+
+
+.right-register input::placeholder {
+  color: #666; /* Cor do texto do placeholder mais escura */
+  opacity: 0.5; /* Para garantir que a opacidade não diminua */
+}

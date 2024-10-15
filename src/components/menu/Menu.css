@@ -1,0 +1,37 @@
+/* src/components/Menu.css */
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura total da tela */
+    background-color: #f4f4f4; /* Cor de fundo clara */
+}
+
+h1 {
+    color: #00008b; /* Azul escuro */
+    margin-bottom: 20px;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os botões */
+}
+
+.menu-button {
+    background-color: #FFD700; /* Cor dourada */
+    color: black; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 15px 25px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    transition: background-color 0.3s, transform 0.2s; /* Efeitos de transição */
+}
+
+.menu-button:hover {
+    background-color: #FFC107; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}

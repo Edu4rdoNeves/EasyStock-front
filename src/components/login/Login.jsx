@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import "./Login.css";
 
 const Login = () => {
@@ -7,6 +8,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+ 
+  const navigate = useNavigate();  // Inicializa a navegação
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,6 +31,7 @@ const Login = () => {
         console.log('Login successful:', data);
         // Armazenar o token ou redirecionar, dependendo da sua lógica
         localStorage.setItem('token', data.token); // Exemplo de como salvar o token
+            navigate('/menu'); // Redirecionar para o menu
       } else {
         setError(data.message || 'Email ou senha estão incorretos');
       }
@@ -103,9 +107,8 @@ const Login = () => {
             
 
             <div className='signup-link'>
-              <p>Não tem uma conta? <a href='#'>Cadastre-se</a></p>
+              <p>Não tem uma conta? <span onClick={() => navigate('/register')} style={{cursor: 'pointer', transition: 0.1, textDecoration: 'underline' }}>Cadastre-se</span></p>
             </div>
-
           </form>
         </div>
       </div>

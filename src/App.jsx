@@ -1,13 +1,29 @@
-// src/App.js
 import React from 'react';
-import Login from './components/login/Login';  // Importando o componente Login
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import Menu from './components/menu/Menu';
+import UserManagement from './components/userManagement/UserManagement'; 
+import ProductManagement from './components/productManagement/ProductManagement'; 
+import Inventory from './components/inventory/Inventory'; 
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/user-management" element={<UserManagement />} />
+          <Route path="/product-management" element={<ProductManagement />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/" element={<Login />} /> {/* Rota padrão */}
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
