@@ -8,13 +8,14 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false); // Novo estado para "Lembre de mim"
  
-  const navigate = useNavigate();  // Inicializa a navegação
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    setError(''); // Limpa o erro anterior
+    setError('');
 
     try {
       const response = await fetch('http://localhost:8080/api/v1/login/', {
@@ -29,14 +30,17 @@ const Login = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // Armazenar o token ou redirecionar, dependendo da sua lógica
-        localStorage.setItem('token', data.token); // Exemplo de como salvar o token
-            navigate('/menu'); // Redirecionar para o menu
+        localStorage.setItem('token', data.token);
+        if (rememberMe) {
+          localStorage.setItem('email', email); // Salva o email se "Lembre de mim" estiver marcado
+        }
+        navigate('/menu');
       } else {
         setError(data.message || 'Email ou senha estão incorretos');
       }
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      console.error('Error during login:', error); // Log do erro para depuração
+      setError('Ocorreu um erro. Por favor, tente novamente.');
     } finally {
       setLoading(false);
     }
@@ -48,7 +52,6 @@ const Login = () => {
 
   return (
     <div className='main-login'>
-      {/* Mensagem de erro exibida condicionalmente */}
       {error && (
         <div className='warning-message'>
           <span className="error-message">{error}</span>
@@ -57,7 +60,7 @@ const Login = () => {
       )}
       
       <div className='left-login'>
-        <h1>Faça Login <br></br> E entre para o nosso time</h1>
+        <h1>Faça Login <br /> E entre para o nosso time</h1>
         <img src="/assets/task.svg" className="left-login-img" alt="task animation" />
       </div>
 
@@ -91,12 +94,16 @@ const Login = () => {
             </div>
 
             <button type="submit" className="btn-login" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
+              {loading ? 'Carregando...' : 'Login'}
             </button>
 
             <div className="recall">
               <label>
-                <input type='checkbox' />
+                <input 
+                  type='checkbox' 
+                  checked={rememberMe} 
+                  onChange={(e) => setRememberMe(e.target.checked)} // Atualiza o estado do checkbox
+                />
                 Lembre de mim 
               </label>
             </div>
@@ -105,9 +112,8 @@ const Login = () => {
               <a href='#'>Esqueceu a senha?</a>
             </div>
             
-
             <div className='signup-link'>
-              <p>Não tem uma conta? <span onClick={() => navigate('/register')} style={{cursor: 'pointer', transition: 0.1, textDecoration: 'underline' }}>Cadastre-se</span></p>
+              <p>Não tem uma conta? <span onClick={() => navigate('/register')} style={{ cursor: 'pointer', transition: 0.1, textDecoration: 'underline' }}>Cadastre-se</span></p>
             </div>
           </form>
         </div>
