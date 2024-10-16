@@ -1,0 +1,182 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.menu-page {
+  display: flex; /* Usar flexbox para organizar a sidebar e o conteúdo principal */
+  height: 100vh; /* Faz com que a página ocupe a altura total da viewport */
+  background-color: #f0f8ff; /* Cor de fundo da página (um azul claro) */
+}
+
+/* Estilos para a sidebar */
+.sidebar-menu {
+  width: 250px; /* Largura da sidebar */
+  background-color: #1e90ff; /* Azul para a sidebar */
+  padding: 20px; /* Espaçamento interno */
+  color: white; /* Cor do texto da sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra à direita da sidebar */
+  transition: width 0.3s; /* Transição suave para largura da sidebar */
+}
+
+.sidebar-menu.collapsed {
+  width: 60px; /* Largura reduzida quando fechada */
+}
+
+.sidebar-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu h2 {
+  color: #ffffff; /* Cor original azul do título */
+  margin-bottom: 10px;
+  font-size: 16px; /* Tamanho da fonte ajustado */
+  white-space: nowrap; /* Evita quebra de linha */
+  overflow: hidden; /* Esconde o texto ao colapsar */
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-menu.collapsed h2 {
+  opacity: 0; /* Esconde o título quando colapsada */
+}
+
+.sidebar-menu li {
+  margin: 15px 0;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  overflow: hidden; /* Evita que o texto vaze */
+  text-overflow: ellipsis; /* Adiciona '...' se o texto for muito longo */
+}
+
+.sidebar-menu.collapsed li {
+  opacity: 0; /* Esconde o texto dos itens da lista */
+}
+
+.sidebar-menu li:hover {
+  background-color: #ffd700;
+  color: #1e90ff;
+}
+
+.sidebar-menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-menu li a:hover {
+  color: #1e90ff;
+}
+
+.main-content {
+  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+  padding: 20px; /* Adiciona espaçamento interno ao conteúdo principal */
+  background-color: transparent; /* Remove cor de fundo */
+  min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+  box-shadow: none; /* Remove sombra do conteúdo */
+  display: flex; /* Usar flexbox para centralizar o conteúdo */
+  flex-direction: column; /* Coloca os itens em uma coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  transition: transform 0.3s; /* Transição suave ao mudar a posição do conteúdo */
+}
+
+/* Para centralizar o conteúdo quando a sidebar estiver aberta */
+.menu-page.sidebar-open .main-content {
+  transform: translateX(0); /* Mantém o conteúdo no centro */
+}
+
+.main-content.collapsed {
+  margin-left: 60px;
+}
+
+.main-content.expanded {
+  margin-left: 250px;
+}
+
+/* Estilos para os botões */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os botões */
+  align-items: center; /* Centraliza os botões horizontalmente */
+}
+
+.menu-button {
+  background-color: #1e90ff;
+  color: white;
+  padding: 20px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Largura dos botões */
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: #ffd700;
+  color: #1e90ff;
+  transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+
+.menu-button i {
+  margin-right: 20px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilização do botão de alternância da sidebar */
+.sidebar-toggle {
+  position: absolute;
+  top: 20px; /* Ajuste a posição vertical se necessário */
+  left: 14.5%; /* Mover o botão para o lado direito da sidebar */
+  transform: translateX(-50%); /* Centraliza o botão em relação à borda da sidebar */
+  background-color: #1e90ff; /* Cor de fundo */
+  color: rgb(255, 255, 255); /* Cor do ícone */
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Remove padding, pois vamos definir o tamanho */
+  border-radius: 50%; /* Torna o botão redondo */
+  transition: background-color 0.3s ease, left 0.3s ease; /* Transição suave */
+  width: 60px; /* Largura do botão */
+  height: 60px; /* Altura do botão */
+  display: flex; /* Usar flexbox para centralizar o ícone */
+  align-items: center; /* Centraliza verticalmente o ícone */
+  justify-content: center; /* Centraliza horizontalmente o ícone */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para o botão */
+  margin-left: -30px; /* Faz com que a esfera fique para fora da sidebar */
+}
+
+.sidebar-toggle:hover {
+  background-color: #ffd700; /* Cor ao passar o mouse */
+}
+
+.sidebar-toggle.collapsed {
+  left: 85px; /* Posição quando a sidebar está fechada */
+}
+
+.sidebar-menu {
+  position: relative; /* Para permitir o posicionamento absoluto do botão */
+  transition: width 0.3s ease; /* Transição suave para a largura */
+}
+
+.sidebar-menu.closed {
+  width: 60px; /* Reduz a largura da sidebar quando fechada */
+}
+
+.sidebar-menu.open {
+  width: 250px; /* Largura total quando aberta */
+}
+
+.main-content h1 {
+  font-size: 32px; /* Tamanho do texto do título */
+  color: #1e90ff; /* Azul para o título */
+  margin-bottom: 10px; /* Espaço inferior */
+}
+
+.main-content p {
+  font-size: 18px; /* Tamanho do texto do parágrafo */
+  color: #2c3e50; /* Cor do texto do parágrafo */
+}
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
-import Menu from './components/menu/Sidebar'; // Importando o Menu correto
+import Menu from './components/menu/Menu'; // Importando o Menu correto
 import UserManagement from './components/userManagement/UserManagement'; 
 import ProductManagement from './components/productManagement/ProductManagement'; 
 import Inventory from './components/inventory/Inventory'; 
