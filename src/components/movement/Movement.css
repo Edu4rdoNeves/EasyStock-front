@@ -1,0 +1,97 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.menu-page {
+  display: flex; /* Usar flexbox para organizar a sidebar e o conteúdo principal */
+  height: 100vh; /* Faz com que a página ocupe a altura total da viewport */
+  background-color: #f0f8ff; /* Cor de fundo da página (um azul claro) */
+  position: relative; /* Para permitir o posicionamento absoluto das barras laterais */
+}
+
+.sidebar-left, .sidebar-right {
+  position: absolute; /* Posicionamento absoluto */
+  top: 0; /* Começa no topo */
+  width: 100px; /* Largura das barras laterais */
+  height: 100%; /* Altura total */
+  background-color: #1e90ff; /* Cor das barras */
+}
+
+.sidebar-left {
+  left: 0; /* Barra esquerda fica na esquerda */
+}
+
+.sidebar-right {
+  right: 0; /* Barra direita fica na direita */
+}
+
+.main-content {
+  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+  padding: 20px; /* Adiciona espaçamento interno ao conteúdo principal */
+  background-color: transparent; /* Remove cor de fundo */
+  min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+  box-shadow: none; /* Remove sombra do conteúdo */
+  display: flex; /* Usar flexbox para centralizar o conteúdo */
+  flex-direction: column; /* Coloca os itens em uma coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  transition: transform 0.3s; /* Transição suave ao mudar a posição do conteúdo */
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os botões */
+  align-items: center; /* Centraliza os botões horizontalmente */
+}
+
+/* Estilos para os botões */
+.menu-button {
+  background-color: #1e90ff;
+  color: white;
+  padding: 20px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Largura dos botões */
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: #ffd700;
+  color: #1e90ff;
+  transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+
+.menu-button i {
+  margin-right: 20px; /* Espaço entre o ícone e o texto */
+}
+
+.main-content h1 {
+  font-size: 32px; /* Tamanho do texto do título */
+  color: #1e90ff; /* Azul para o título */
+  margin-bottom: 10px; /* Espaço inferior */
+}
+
+.main-content p {
+  font-size: 18px; /* Tamanho do texto do parágrafo */
+  color: #2c3e50; /* Cor do texto do parágrafo */
+}
+
+.logo-container {
+  display: flex; /* Usar flexbox para centralizar */
+  flex-direction: column; /* Coloca a logo em cima do título */
+  align-items: center; /* Centraliza horizontalmente */
+  margin-bottom: 10px; /* Espaço abaixo da logo e do título */
+}
+
+.logo {
+  width: 350px; /* Ajuste o tamanho conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-left: 360px;
+  margin-bottom: 10px; /* Espaço entre a logo e o título */
+}
+
+

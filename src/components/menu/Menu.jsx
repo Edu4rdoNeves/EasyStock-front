@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './Menu.css'; // Certifique-se de que o caminho está correto
+import './Menu.css'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const Menu = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Estado para controle da sidebar
@@ -8,6 +10,8 @@ const Menu = () => {
     setIsSidebarOpen(!isSidebarOpen); // Alterna o estado da sidebar
   };
 
+  const navigate = useNavigate();
+  
   return (
     <div className={`menu-page ${isSidebarOpen ? 'sidebar-open' : ''}`}>
       <div className={`sidebar-menu ${isSidebarOpen ? 'open' : 'collapsed'}`}>
@@ -30,15 +34,15 @@ const Menu = () => {
       </div>
       <div className="main-content">
         <h1 style={{ color: '#1e90ff' }}>Bem-vindo ao Sistema da Geek Up Games!</h1>
-        <p style={{ color: '#1e90ff' }}>Este é o menu principal</p>
+        <p style={{ color: '#1e90ff' }}>Menu principal</p>
         <div className="menu-buttons">
-          <button className="menu-button">
-            <i className="fas fa-shopping-cart"></i> GERENCIAMENTO
-          </button>
-          <button className="menu-button">
+        <button className="menu-button" onClick={() => navigate('/management')}>
+          <i className="fas fa-shopping-cart"></i> GERENCIAMENTO
+        </button>
+          <button className="menu-button" onClick={() => navigate('/movement')}>
             <i className="fas fa-briefcase"></i> MOVIMENTAÇÃO
           </button>
-          <button className="menu-button">
+          <button className="menu-button" onClick={() => navigate('/administration')}>
             <i className="fas fa-chart-bar"></i> ADMINISTRAÇÃO
           </button>
         </div>
