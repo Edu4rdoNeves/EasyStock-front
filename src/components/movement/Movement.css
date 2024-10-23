@@ -94,4 +94,24 @@
   margin-bottom: 10px; /* Espaço entre a logo e o título */
 }
 
+.back-button {
+  background-color: transparent; /* Fundo transparente */
+  border: none; /* Sem borda */
+  color: #ffffff; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  display: flex; /* Usar flexbox para centralizar o ícone e o texto */
+  align-items: center; /* Centraliza verticalmente */
+  position: absolute; /* Posiciona o botão de forma absoluta */
+  top: 20px; /* Distância do topo */
+  left: 10px; /* Distância da esquerda */
+}
+
+.back-button i {
+  margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.back-button:hover {
+  text-decoration: underline; /* Sublinha o texto ao passar o mouse */
+}
 
