@@ -20,14 +20,14 @@ const Management = () => {
           <h1>Menu de Gerenciamento!</h1>
         </div>
         <div className="menu-buttons">
-          <button className="menu-button">
+          <button className="menu-button" onClick={() => navigate('/products')}>
             <i className="fas fa-shopping-cart"></i> Produtos
           </button>
-          <button className="menu-button">
+          <button className="menu-button" onClick={() => navigate('/categoryManagement')}>
             <i className="fa-solid fa-list"></i> Categorias
           </button>
-          <button className="menu-button">
-            <i className="fa-solid fa-parachute-box"></i> Fornecedores
+          <button className="menu-button" onClick={() => navigate('/suppliers-management')}>
+            <i className="fa-solid fa-parachute-box"></i> Suppliers
           </button>
         </div>
       </div>

@@ -1,0 +1,92 @@
+/* Estilo principal da página */
+.product-management-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Faz a altura ocupar toda a tela */
+  background-color: #f4f4f4; /* Fundo claro */
+  font-family: 'Arial', sans-serif; /* Fonte padrão */
+}
+
+/* Estilo do título */
+h1 {
+  color: #003366; /* Azul escuro */
+  margin-bottom: 20px;
+}
+
+/* Estilo do contêiner de busca */
+.search-container {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os elementos */
+  margin-bottom: 20px;
+}
+
+/* Estilo do input de busca */
+input[type="text"], input[type="number"] {
+  padding: 10px;
+  border: 2px solid #003366; /* Borda azul escura */
+  border-radius: 5px; /* Bordas arredondadas */
+  outline: none; /* Remove o contorno padrão */
+  transition: border 0.3s; /* Transição suave */
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: #FFD700; /* Dourado quando focado */
+}
+
+/* Estilo dos botões */
+button {
+  padding: 10px 20px;
+  border: none; /* Remove a borda padrão */
+  border-radius: 25px; /* Bordas bem arredondadas */
+  background-color: #003366; /* Azul escuro */
+  color: white; /* Texto branco */
+  cursor: pointer; /* Muda o cursor para pointer */
+  font-size: 16px;
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+  background-color: #FFD700; /* Dourado ao passar o mouse */
+  color: #003366; /* Azul escuro ao passar o mouse */
+}
+
+/* Estilo da lista de produtos */
+.product-list {
+  width: 100%; /* Ocupa toda a largura */
+  max-width: 600px; /* Largura máxima */
+}
+
+/* Estilo de cada item de produto */
+.product-item {
+  background-color: white; /* Fundo branco */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  margin: 10px 0;
+  padding: 15px; /* Espaçamento interno */
+  position: relative; /* Para posicionamento dos ícones */
+}
+
+/* Estilo dos ícones */
+.action-buttons {
+  position: absolute; /* Para posicionamento absoluto */
+  top: 10px; /* Posição superior */
+  right: 10px; /* Posição direita */
+  display: flex;
+  gap: 10px; /* Espaçamento entre ícones */
+  cursor: pointer; /* Muda o cursor para pointer */
+}
+
+/* Estilo do contêiner do formulário */
+.form-container {
+  margin-top: 20px;
+  background-color: white; /* Fundo branco */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  padding: 20px; /* Espaçamento interno */
+  width: 100%; /* Ocupa toda a largura */
+  max-width: 600px; /* Largura máxima */
+}
+
